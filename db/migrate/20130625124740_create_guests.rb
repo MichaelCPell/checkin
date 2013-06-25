@@ -6,6 +6,7 @@ class CreateGuests < ActiveRecord::Migration
       t.string :email
       t.string :company
       t.string :attending_with
+      t.string :first_last
 
       t.timestamps
     end

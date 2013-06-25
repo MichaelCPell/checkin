@@ -41,15 +41,14 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(params[:guest])
+    @guest.first_last = "#{@guest.first_name.strip.downcase}_#{@guest.last_name.strip.downcase}"
 
-    respond_to do |format|
-      if @guest.save
-        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
-        format.json { render json: @guest, status: :created, location: @guest }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @guest.errors, status: :unprocessable_entity }
-      end
+    if @guest.save
+      @rsvp = @guest.rsvp || @guest.build_rsvp(status: "success", printed: "not_printed")
+      @rsvp.save
+      render "rsvps/show"
+    else
+      render action: "new"
     end
   end
 

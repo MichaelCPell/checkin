@@ -1,0 +1,92 @@
+<script src="http://labelwriter.com/software/dls/sdk/js/DYMO.Label.Framework.latest.js"
+        type="text/javascript" charset="UTF-8"> </script>
+
+<h1>Listing guests</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Company</th>
+    <th>Attending with</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @guests.each do |guest| %>
+  <tr>
+    <td><%= guest.first_name %></td>
+    <td><%= guest.last_name %></td>
+    <td><%= guest.email %></td>
+    <td><%= guest.company %></td>
+    <td><%= guest.attending_with %></td>
+    <td><%= link_to 'Show', guest %></td>
+    <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
+    <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Guest', new_guest_path %>
+
+
+
+
+
+<!-- BEGIN DYNO JS Playground -->
+<script type="text/javascript">
+    // STEP 1
+   
+    var labelXml = "<DieCutLabel Version='8.0' Units='twips'> \
+         <PaperOrientation>Landscape</PaperOrientation> \
+         <Id>Address</Id> \
+         <PaperName>30252 Address</PaperName> \
+         <DrawCommands/> \
+         <ObjectInfo> \
+         <TextObject> \
+         <Name>Text</Name> \
+         <ForeColor Alpha='255' Red='0' Green='0' Blue='0' /> \
+         <BackColor Alpha='0' Red='255' Green='255' Blue='255' /> \
+         <LinkedObjectName></LinkedObjectName> \
+         <Rotation>Rotation0</Rotation> \
+         <IsMirrored>False</IsMirrored> \
+         <IsVariable>True</IsVariable> \
+         <HorizontalAlignment>Left</HorizontalAlignment> \
+         <VerticalAlignment>Middle</VerticalAlignment> \
+         <TextFitMode>ShrinkToFit</TextFitMode> \
+         <UseFullFontHeight>True</UseFullFontHeight> \
+         <Verticalized>False</Verticalized> \
+         <StyledText/> \
+         </TextObject> \
+         <Bounds X='332' Y='150' Width='4455' Height='1260' /> \
+         </ObjectInfo> \
+         </DieCutLabel>";
+    var label = dymo.label.framework.openLabelXml(labelXml);
+    
+    // STEP 2
+    label.setObjectText("Text", "Hello From Michael");
+ 
+    // STEP 3
+    var printers = dymo.label.framework.getPrinters();
+    if (printers.length == 0)
+        alert("No DYMO printers are installed. Install DYMO printers.");
+
+    var printerName = "";
+    for (var i = 0; i < printers.length; ++i)
+    {
+        var printer = printers[i];
+        if (printer.printerType == "LabelWriterPrinter")
+        {
+            printerName = printer.name;
+            break;
+        }
+    }
+
+    // STEP 4
+    label.print(printerName);
+
+</script>
