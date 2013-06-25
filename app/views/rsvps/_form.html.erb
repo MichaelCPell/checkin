@@ -12,20 +12,12 @@
   <% end %>
 
   <div class="field">
-    First Name: <%= @rsvp.guest.first_name %>
-  </div>
-
-  <div class="field">
-    Last Name: <%= @rsvp.guest.last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :printed %><br />
-    <%= f.select :printed, options_for_select([["Printed","printed"],["Not Printed", "not_printed"]]) %>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.select :status, options_for_select([["Success", "success"], ["Failed", "failed"]]) %>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
   </div>
   <div class="actions">
     <%= f.submit "Check In" %>

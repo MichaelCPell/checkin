@@ -1,6 +1,40 @@
 <h1>Editing rsvp</h1>
 
-<%= render 'form' %>
+<%= form_for(@rsvp) do |f| %>
+  <% if @rsvp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rsvp.errors.count, "error") %> prohibited this rsvp from being saved:</h2>
+
+      <ul>
+      <% @rsvp.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @rsvp.guest %>
+  <div class="field">
+    First Name: <%= @rsvp.guest.first_name %>
+  </div>
+
+  <div class="field">
+    Last Name: <%= @rsvp.guest.last_name %>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :printed %><br />
+    <%= f.select :printed, options_for_select([["Printed","printed"],["Not Printed", "not_printed"]]) %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, options_for_select([["Success", "success"], ["Failed", "failed"]]) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Check In" %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @rsvp %> |
 <%= link_to 'Back', rsvps_path %>
