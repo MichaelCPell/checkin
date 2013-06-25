@@ -44,7 +44,7 @@ class GuestsController < ApplicationController
     @guest.first_last = "#{@guest.first_name.strip.downcase}_#{@guest.last_name.strip.downcase}"
 
     if @guest.save
-      @rsvp = RSVP.find_by_first_last(@guest.first_last) || RSVP.create(status: "success", printed: "not_printed", first_last: @guest.first_last)
+      @rsvp = Rsvp.find_by_first_last(@guest.first_last) || Rsvp.create(status: "success", printed: "not_printed", first_last: @guest.first_last)
       @rsvp.save
       render "rsvps/show"
     else
