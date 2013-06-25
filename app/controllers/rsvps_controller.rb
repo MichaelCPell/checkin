@@ -30,6 +30,16 @@ class RsvpsController < ApplicationController
 
   def update
     @rsvp = Rsvp.find(params[:id])
+
+    respond_to do |format|
+      if @rsvp.update_attributes(params[:rsvp])
+        format.html { redirect_to rsvps_path, notice: 'Rsvp was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @rsvp.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
