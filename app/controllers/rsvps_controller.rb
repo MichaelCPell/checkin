@@ -20,7 +20,7 @@ class RsvpsController < ApplicationController
     @guest = Guest.find_by_first_last(key)
 
     if @guest 
-      @rsvp = Rsvp.find_by_first_last(@guest.first_last) || Rsvp.create(status: "success", printed: "not_printed", first_last: @guest.first_last)
+      @rsvp = @guest.rsvp || Rsvp.create(status: "success", printed: "not_printed", guest_id: @guest.id)
       @rsvp.save
       render :show
     else
