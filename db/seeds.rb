@@ -1057,7 +1057,7 @@ Guest.create(first_name:"Henry", last_name:"Gailliot", email:"gailliot@staleycap
 Guest.create(first_name:"Marten", last_name:"Mickos", email:"mgm@iki.fi", first_last:"marten_mickos")
 Guest.create(first_name:"Kevin", last_name:"Rose", email:"kevin@digg.com", first_last:"kevin_rose")
 Guest.create(first_name:"Jon", last_name:"Callaghan", email:"jon@trueventures.com", first_last:"jon_callaghan")
-Guest.create(first_name:"Albert", last_name:"Wenger", email:"albert@usv.com", first_last:"albert_wenger")
+Guest.create(first_name:"Albert", last_name:"Wenger", email:"albert@usv.com", firsvpt_last:"albert_wenger")
 Guest.create(first_name:"Adam", last_name:"Rifkin", email:"ifindkarma@gmail.com", first_last:"adam_rifkin")
 Guest.create(first_name:"Derek", last_name:"Andersen", email:"derek@commonred.com", first_last:"derek_andersen")
 Guest.create(first_name:"Hector", last_name:"Garcia-Molina", email:"hector@cs.stanford.edu", first_last:"hector_garcia-molina")
