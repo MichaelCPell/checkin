@@ -11,27 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+  <div class="row">
+    <div class="small-12 columns">
+      <label>Firstname<label>
+      <%= f.text_field :first_name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <label>Lastname<label>
+        <%= f.text_field :last_name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <label>E-mail<label>
+      <%= f.text_field :email %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :company %><br />
-    <%= f.text_field :company %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <label>Company<label>
+      <%= f.text_field :company %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :attending_with %><br />
-    <%= f.text_field :attending_with %>
+
+
+  <div class="row">
+    <div class="small-12 columns">
+      <label>Attending with:<label>
+      <%= f.text_field :attending_with %>
+    </div>
   </div>
+
   <div class="actions">
-    <%= f.submit "Sign Up" %>
+    <%= f.submit "Sign Up", class: "button" %>
   </div>
 <% end %>
