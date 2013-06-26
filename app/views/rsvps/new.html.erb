@@ -1,4 +1,4 @@
-<h1>Welcome to the Conference</h1>
+<h4>Welcome! Please sign in to get your name badge</h4>
 
 <%= render 'form' %>
 
@@ -7,8 +7,13 @@
 
   $(document).ready(function() {
     $('.typeahead').typeahead({
-      name: 'planets', 
+      name: 'names', 
       local: <%= raw @names %>
+    });
+
+    $('.typeahead2').typeahead({
+      name: 'companies',
+      local: []
     });
   });
 

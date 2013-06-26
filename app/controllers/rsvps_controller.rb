@@ -23,9 +23,8 @@ class RsvpsController < ApplicationController
     company = "#{params[:rsvp][:company].strip}"
     @guest = Guest.find_by_full_name(fullname)
 
-    @guest.company = company
-
-    if @guest.save
+    if @guest
+      @guest.company = company
       @rsvp = @guest.rsvp || Rsvp.create(status: "success", printed: "not_printed", guest_id: @guest.id)
       @rsvp.save
       render :show
