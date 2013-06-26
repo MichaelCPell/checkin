@@ -19,7 +19,7 @@ class RsvpsController < ApplicationController
   end
 
   def create
-    fullname = "#{params[:rsvp][:full_name].strip}".downcase
+    fullname = "#{params[:rsvp][:full_name].strip}"
     @guest = Guest.find_by_full_name(fullname)
 
     if @guest 

@@ -41,7 +41,6 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(params[:guest])
-    @guest.first_last = "#{@guest.first_name.strip.downcase}_#{@guest.last_name.strip.downcase}"
 
     if @guest.save
       @rsvp = @guest.rsvp || Rsvp.create(status: "success", printed: "not_printed", guest_id: @guest.id)
