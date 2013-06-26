@@ -51,5 +51,7 @@ class RsvpsController < ApplicationController
   def destroy
     @rsvp = Rsvp.find(params[:id])
     @rsvp.destroy
+
+    redirect_to rsvps_path
   end
 end

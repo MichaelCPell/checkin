@@ -14,13 +14,9 @@
   <% end %>
 
   <% if @rsvp.guest %>
-  <div class="field">
-    First Name: <%= @rsvp.guest.first_name %>
-  </div>
-
-  <div class="field">
-    Last Name: <%= @rsvp.guest.last_name %>
-  </div>
+    <div class="field">
+      Fullname: <%= @rsvp.guest.full_name %>
+    </div>
   <% end %>
 
   <div class="field">
