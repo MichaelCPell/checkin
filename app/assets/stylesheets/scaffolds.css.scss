@@ -78,7 +78,7 @@ div {
    background: #fff;
    margin:0 auto;
    width: 80%;
-   padding: 0 10%;
+   padding: 2% 10% 20% 10%;
 }
 
 
@@ -122,4 +122,9 @@ input[type="text"]:focus{
     text-align: center;
     font-weight: bold;
     display: inline-block;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    font-size: 18px;
 }
