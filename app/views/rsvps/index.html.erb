@@ -19,8 +19,7 @@
 
 <% Rsvp.all.each do |rsvp| %>
   <tr>
-    <td><%= rsvp.guest.first_name %></td>
-    <td><%= rsvp.guest.last_name %></td>
+    <td><%= rsvp.guest.full_name %></td>
     <td><%= rsvp.status %></td>
     <td><%= rsvp.printed %></td>
     <td><%= link_to 'Show', rsvp %></td>

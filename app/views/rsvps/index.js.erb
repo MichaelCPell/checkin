@@ -30,7 +30,7 @@ var label = dymo.label.framework.openLabelXml(labelXml);
 // STEP 3
 var printers = dymo.label.framework.getPrinters();
 if (printers.length == 0)
-    // alert("No DYMO printers are installed. Install DYMO printers.");
+    alert("No DYMO printers are installed. Install DYMO printers.");
 
 var printerName = "";
 for (var i = 0; i < printers.length; ++i)
@@ -44,8 +44,7 @@ for (var i = 0; i < printers.length; ++i)
 }
 
 <% @rsvps.each do |rsvp| %>
-  // alert("<%=j rsvp.guest.first_name + " " + rsvp.guest.last_name %>")
-  label.setObjectText("Text", "<%=j rsvp.guest.first_name + " " + rsvp.guest.last_name %>");
+  label.setObjectText("Text", "<%=j rsvp.guest.full_name %>");
   
   label.print(printerName);
 
