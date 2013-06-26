@@ -1,3 +1,15 @@
 <h1>Welcome to the Conference</h1>
 
 <%= render 'form' %>
+
+<script type="text/javascript">
+
+
+  $(document).ready(function() {
+    $('.typeahead').typeahead({
+      name: 'planets', 
+      local: <%= raw @names %>
+    });
+  });
+
+</script>

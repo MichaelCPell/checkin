@@ -1,6 +1,6 @@
 class Rsvp < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :status, :printed, :guest_id
-  attr_reader :first_name, :last_name
+  attr_accessible :status, :printed, :guest_id
+  attr_reader :full_name, :company
 
   belongs_to :guest
 end

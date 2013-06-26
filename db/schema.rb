@@ -14,12 +14,10 @@
 ActiveRecord::Schema.define(:version => 20130625161651) do
 
   create_table "guests", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "full_name"
     t.string   "email"
     t.string   "company"
     t.string   "attending_with"
-    t.string   "first_last"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

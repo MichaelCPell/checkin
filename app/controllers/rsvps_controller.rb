@@ -9,6 +9,9 @@ class RsvpsController < ApplicationController
 
   def new
     @rsvp = Rsvp.new
+
+    @names = Guest.pluck(:full_name)
+
   end
 
   def edit
@@ -16,8 +19,8 @@ class RsvpsController < ApplicationController
   end
 
   def create
-    key = "#{params[:rsvp][:first_name].strip}_#{params[:rsvp][:last_name].strip}".downcase
-    @guest = Guest.find_by_first_last(key)
+    fullname = "#{params[:rsvp][:full_name].strip}".downcase
+    @guest = Guest.find_by_full_name(fullname)
 
     if @guest 
       @rsvp = @guest.rsvp || Rsvp.create(status: "success", printed: "not_printed", guest_id: @guest.id)
