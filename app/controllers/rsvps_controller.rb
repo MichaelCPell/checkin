@@ -1,6 +1,7 @@
 class RsvpsController < ApplicationController
   def index
     @rsvps = Rsvp.where(status: "success", printed: "not_printed")
+    # @rsvps = Rsvp.all
   end
 
   def show
