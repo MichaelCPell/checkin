@@ -1,7 +1,6 @@
 class RsvpsController < ApplicationController
   def index
     @rsvps = Rsvp.where(status: "success", printed: "not_printed")
-    # @rsvps = Rsvp.all
   end
 
   def show
@@ -36,6 +35,9 @@ class RsvpsController < ApplicationController
 
   def update
     @rsvp = Rsvp.find(params[:id])
+
+    @rsvp.update_attribute(:printed, "printed")
+
 
     respond_to do |format|
       if @rsvp.update_attributes(params[:rsvp])

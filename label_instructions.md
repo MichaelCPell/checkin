@@ -1,12 +1,8 @@
 var final_printer;
 
-var label;
+var my_label;
 
-$.get("just_name.label", function(labelXml)
-{
-    label = dymo.label.framework.openLabelXml(labelXml);
-}, "text");
-
+// loads all supported printers into a combo box 
 function loadPrinters()
 {
     var printers = dymo.label.framework.getPrinters();
@@ -26,20 +22,12 @@ function loadPrinters()
     }
 }
 
-loadPrinters();
-     
+
+$.get("just_name.label", function(labelXml)
+{
+    my_label = dymo.label.framework.openLabelXml(labelXml);
+}, "text");
 
 
-<% @rsvps.each do |rsvp| %>
-
-    label.setObjectText("TEXT", "<%= rsvp.guest.full_name %>");
-    label.print(final_printer);
-
-    $.ajax({
-      type: "PUT",
-      url: "/rsvps/<%= rsvp.id %>",
-      dataType: "json"
-    });
-  
-<% end %>
+my_label.setObjectText("TEXT", "JOHN SMITH")
 

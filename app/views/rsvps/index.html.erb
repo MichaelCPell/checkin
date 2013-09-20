@@ -34,9 +34,7 @@
 <%= link_to 'New Rsvp', new_rsvp_path %>
 
 <script>
-  $(function() {
-      setTimeout(updateComments, 1000);
-  });
+  updateComments();
 
   function updateComments () {
     $.getScript("/rsvps.js")
